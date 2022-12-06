@@ -10,6 +10,7 @@ const map = new mapboxgl.Map({
      //globe projection rather than the default web mercator
     projection: 'globe',
     });
+    
 
 
     //load the Water bodies data file from the data folder
@@ -18,7 +19,7 @@ const map = new mapboxgl.Map({
             type: 'geojson',
             data: 'data/africawaterbody.geojson',
         });
-
+        map.scrollZoom.disable();
         map.addLayer({
           'id': 'water-layer',
           'type': 'line',
