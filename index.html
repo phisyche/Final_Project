@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Final Project</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!-- Mapbox files -->
+        <link href="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css" rel="stylesheet">
+        <script src="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js"></script>
+        <!-- Leaflet links -->
+        <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css" 
+            integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14=" 
+            crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js" integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg=" crossorigin=""></script>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
+        <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+        <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+        <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+        <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script> -->
+        <!-- My CSS file -->
+        <link rel="stylesheet" href="styles.css"/>
+    </head>
+    <body>
+
+        <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.min.js'></script>
+	    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.css' type='text/css' />
+        <section>
+            <div>
+            <h2 style="text-align: center;">Plant Cover, Semi-aridity and Aridity in Africa</h2>
+            <p style="text-align: center;">The story map will be a combination of a thematic map, chloropleth map and a contour map.</p>
+            <!-- Initialize Map -->
+            <div id="map"></div>
+            <br>
+            <!-- Adding a legend at the bottom right part of the page. -->
+            <div id='legend'>
+                <br/>
+                <h4>Key</h4>
+                <ul>
+                    <li><hr class="class1"> Plant Cover</li>
+                    <li><hr class="class2"> Water Body</li>
+                    <li><hr class="class3"> Desert</li>
+                    <!-- <li><hr class="boundary"> Park boundary</li> -->
+                </ul>
+            </div>
+            </div>
+
+            <div>
+                <h2 style="text-align: center;">The Missing Middle - South Hill, WA</h2>
+                <div id="map1" style='width: 100%; height: 500px';></div>
+                <div id='southHill'>South Hill</div>
+                <script>
+                mapboxgl.accessToken = 'pk.eyJ1IjoicnlhbmptaXRjaCIsImEiOiJjamhhdDBjaXgwcmZlMzBxZ2t1cnZ4bnFnIn0.4tXv0Yvk06rDbYp7ZLSdAw';
+                var map1 = new mapboxgl.Map({
+                    container: 'map1',
+                    style: 'mapbox://styles/ryanjmitch/cjohr4dge0boq2smjc3sklh6c',
+                    center: [-122.2930,47.12],
+                    zoom: 11.4
+                });
+                map1.scrollZoom.disable();
+                map1.addControl(new MapboxGeocoder({
+                    accessToken: mapboxgl.accessToken
+                }));
+                map1.addControl(new mapboxgl.NavigationControl({
+                    showCompass: false
+                }));
+                map1.on('load', function(){
+                    var southHill = document.getElementById('southHill');
+                    southHill.addEventListener("click", function(){
+                        map1.setCenter([-122.2930,47.12]);
+                        map1.setZoom(11.4);
+                    });
+                });
+                </script>
+                <p>(<b><font color='#4bdaf7'>Multi-family 1-4 Dwellings</font></b>/<b><font color='#04126c'>Single-family Housing</font></b>)
+                    <br>
+                    From 1990 to 2015 there has been a sharp decline in middle housing within Pierce County. The middle contains dwellings that are detached units, duplexes, triplexes, and fourplexes. In the 1990’s multi-family 1-4 permits made up anywhere from 20-36% of housing permits. Starting in 2000, that dropped abruptly to 9% and never rose above 15% again. As of 2015 7% of permits issued where for multi-family 1-4 units.
+                    <br>
+                    Increasing multi-family 1-4 housing would help Pierce County fight urban sprawl by increasing density without mid-to-high rise apartments. It will help the county to grow ‘smartly’. One of the ideologies of smart growth is mixed-density housing and compact design. Multi-family 1-4 dwellings provide just that. Pierce County needs more middle housing options in order to combat sprawl and to have a diverse offering of housing to all residents.
+                </p>
+                </div>
+            
+        </section>
+        
+        <!-- <div id="map2"></div> -->
+        <!-- My JS file -->
+        <script src="script.js"></script>
+    </body>
+</html>

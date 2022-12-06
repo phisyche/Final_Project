@@ -1,0 +1,63 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Courier New', monospace;
+ }
+
+ #map {
+    /* top: 0;
+    bottom: 0; */
+    width: 100%;
+  height: 600px;
+ }
+
+ #map2 {
+  position: absolute;
+  width: 100%;
+  height: 500px;
+}
+
+ #legend {
+    background-color: #ffffff;
+    border-radius: 3px;
+    bottom: 30px;
+    right: 18px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    padding: 10px;
+    position: absolute;
+    z-index: 1;
+}
+
+#legend h4 {
+margin: 0 0 10px;
+}
+
+#legend hr {
+  width: 16px;
+  transform: rotate(45deg);
+  float: left;
+  margin-right: 10px
+}
+
+#legend ul{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.class1 {
+  border-top: 3px solid green;
+}
+.class2 {
+  border-top: 3px solid blue;
+}
+
+.class3{
+  border-top: 3px solid brown;
+}
+
+.boundary{
+  border-top: 4px solid black;
+  opacity: .6
+}
